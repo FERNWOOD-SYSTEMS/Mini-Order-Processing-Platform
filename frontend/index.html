@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fernwood Mini Store</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Fernwood Mini Store</h1>
+    <p class="sub">Place an order and watch it move through the queue.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>New order</h2>
+      <form id="order-form">
+        <label>Customer name
+          <input id="customer_name" required maxlength="100" placeholder="Ada" />
+        </label>
+        <label>Item
+          <input id="item" list="items" required maxlength="100" placeholder="Notebook" />
+          <datalist id="items">
+            <option value="Notebook"></option>
+            <option value="USB-C Cable"></option>
+            <option value="Laptop Stand"></option>
+            <option value="FAULTY-Widget"></option>
+          </datalist>
+        </label>
+        <label>Quantity
+          <input id="quantity" type="number" min="1" max="100" value="1" required />
+        </label>
+        <button type="submit">Place order</button>
+      </form>
+      <p class="hint">Tip: any item with <code>FAULTY</code> in its name always fails. Use it to test retries and the dead-letter queue.</p>
+      <p id="message" class="message" role="status"></p>
+    </section>
+
+    <section class="card">
+      <div class="row">
+        <h2>Orders</h2>
+        <span id="updated" class="muted"></span>
+      </div>
+      <div id="counts" class="counts"></div>
+      <div id="banner" class="banner" hidden></div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>ID</th><th>Customer</th><th>Item</th><th>Qty</th><th>Status</th><th>Attempts</th><th>Details</th></tr>
+          </thead>
+          <tbody id="orders"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

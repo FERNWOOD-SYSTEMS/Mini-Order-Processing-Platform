@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+
+# Secrets and local config (never commit these)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+# Keep the lock file so everyone uses the same provider versions
+!.terraform.lock.hcl
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Misc
+node_modules/
+*.log
+task-def.json
+
+Mini-Order-Processing-Platform/
